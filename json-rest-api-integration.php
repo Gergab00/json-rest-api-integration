@@ -26,3 +26,6 @@ GNU General Public License for more details.
 You should have received a copy of the GNU General Public License
 along with JSON REST API integration. If not, see https://www.gnu.org/licenses/gpl-2.0.html.
 */
+
+define('JSONRAPII_URL',__FILE__);
+require_once __DIR__ . '/vendor/autoload.php';

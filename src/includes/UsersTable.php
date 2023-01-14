@@ -1,10 +1,10 @@
 <?php
 
-namespace JSONRestAPIIntegration\Includes;
+namespace JSONRAPII\Includes;
 
 /**
  * Class UsersTable
- * @package JSONRestAPIIntegration\Includes
+ * @package JSONRAPII_URL\Includes
  */
 class UsersTable
 {
