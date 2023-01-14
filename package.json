@@ -1,0 +1,52 @@
+{
+	"name": "json-rest-api-integration",
+	"version": "1.0.0",
+	"description": "This plugin allows you to display a HTML table of users on your WordPress site, using data from a third-party REST API.",
+	"main": "index.js",
+	"scripts": {
+		"build": "wp-scripts build --webpack-copy-php --webpack-copy-js --webpack-src-dir=./blocks/src --output-path=./blocks/build",
+		"start": "wp-scripts start --webpack-copy-php --webpack-copy-js --webpack-src-dir=./blocks/src --output-path=./blocks/build",
+		"watch-run-css": "nodemon --watch src/sass/ --ext scss --exec \"npm run compile:css\"",
+		"compile:css": "sass --style expanded --source-map --embed-sources --quiet src/sass/style.scss css/style.css",
+		"lint:scss": "wp-scripts lint-style",
+		"lint:js": "wp-scripts lint-js",
+		"bundle": "dir-archiver --src . --dest ../dist/json-rest-api-integration.zip --exclude .DS_Store .stylelintrc.json .eslintrc .git .gitattributes .github .gitignore README.md composer.json composer.lock node_modules vendor package-lock.json package.json .travis.yml phpcs.xml.dist sass style.css.map yarn.lock",
+		"format": "wp-scripts format",
+		"copy-assets": "node src/build/copy-assets.js",
+		"js-compile": "rollup --config src/build/rollup.config.js --sourcemap"
+	},
+	"repository": {
+		"type": "git",
+		"url": "git+https://github.com/Gergab00/json-rest-api-integration.git"
+	},
+	"keywords": [
+		"WordPress",
+		"Plugin",
+		"REST",
+		"API",
+		"HTTP"
+	],
+	"author": "Gerardo Gabriel Gonzalez Velazquez",
+	"license": "GPL-2.0-or-later",
+	"bugs": {
+		"url": "https://github.com/Gergab00/json-rest-api-integration/issues"
+	},
+	"homepage": "https://github.com/Gergab00/json-rest-api-integration#readme",
+	"dependencies": {
+		"bootstrap": "^5.2.3"
+	},
+	"devDependencies": {
+		"@rollup/plugin-babel": "^5.0.0",
+		"@rollup/plugin-commonjs": "^15.0.0",
+		"@rollup/plugin-multi-entry": "^6.0.0",
+		"@rollup/plugin-node-resolve": "^8.4.0",
+		"@rollup/plugin-replace": "^2.3.4",
+		"@wordpress/scripts": "^25.1.0",
+		"dir-archiver": "^1.1.1",
+		"node-sass": "^7.0.1",
+		"nodemon": "^2.0.20",
+		"sass": "^1.57.1",
+		"stylelint": "^14.16.1",
+		"stylelint-scss": "^4.3.0"
+	}
+}
