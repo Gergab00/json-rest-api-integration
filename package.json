@@ -4,16 +4,16 @@
 	"description": "This plugin allows you to display a HTML table of users on your WordPress site, using data from a third-party REST API.",
 	"main": "index.js",
 	"scripts": {
-		"build": "wp-scripts build --webpack-copy-php --webpack-copy-js --webpack-src-dir=./blocks/src --output-path=./blocks/build",
-		"start": "wp-scripts start --webpack-copy-php --webpack-copy-js --webpack-src-dir=./blocks/src --output-path=./blocks/build",
-		"watch-run-css": "nodemon --watch src/sass/ --ext scss --exec \"npm run compile:css\"",
-		"compile:css": "sass --style expanded --source-map --embed-sources --quiet src/sass/style.scss css/style.css",
+		"build": "wp-scripts build --webpack-copy-php --webpack-copy-js --webpack-src-dir=./src/blocks/src --output-path=./blocks/build",
+		"start": "wp-scripts start --webpack-copy-php --webpack-copy-js --webpack-src-dir=./src/blocks/src --output-path=./blocks/build",
+		"watch-run-css": "nodemon --watch src/assets/sass/ --ext scss --exec \"npm run compile:css\"",
+		"compile:css": "sass --style expanded --source-map --embed-sources --quiet src/assets/sass/style.scss css/style.css",
 		"lint:scss": "wp-scripts lint-style",
 		"lint:js": "wp-scripts lint-js",
 		"bundle": "dir-archiver --src . --dest ../dist/json-rest-api-integration.zip --exclude .DS_Store .stylelintrc.json .eslintrc .git .gitattributes .github .gitignore README.md composer.json composer.lock node_modules vendor package-lock.json package.json .travis.yml phpcs.xml.dist sass style.css.map yarn.lock",
 		"format": "wp-scripts format",
-		"copy-assets": "node src/build/copy-assets.js",
-		"js-compile": "rollup --config src/build/rollup.config.js --sourcemap"
+		"copy-assets": "node src/assets/build/copy-assets.js",
+		"js-compile": "rollup --config src/assets/build/rollup.config.js --sourcemap"
 	},
 	"repository": {
 		"type": "git",

@@ -31,6 +31,9 @@
 		"squizlabs/php_codesniffer": "*",
 		"wp-coding-standards/wpcs": "^2.3"
 	},
+	"autoload": {
+        "psr-4": {"JSONRestAPIIntegration\\": "src/"}
+    },
 	"scripts": {
 		"lint:wpcs": "./vendor/bin/phpcs --standard=Wordpress --extensions=php --ignore=*/vendor/*,*/node_modules/* ./",
 		"lint:php": "@php ./vendor/bin/parallel-lint ./ --exclude .git --exclude vendor .",

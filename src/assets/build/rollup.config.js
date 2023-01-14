@@ -31,7 +31,7 @@ module.exports = [
     {
         input: path.resolve(__dirname, '../js/bootstrap.js'),
         output: {
-            file: path.resolve(__dirname, '../../js/bootstrap.js'),
+            file: path.resolve(__dirname, '../../../js/bootstrap.js'),
             format: 'umd',
             globals,
             name: 'json-rest-api-integration'
@@ -42,7 +42,7 @@ module.exports = [
     {
         input: path.resolve(__dirname, '../js/script.js'),
         output: {
-            file: path.resolve(__dirname, '../../js/script.js'),
+            file: path.resolve(__dirname, '../../../js/script.js'),
             format: 'umd',
             globals,
             name: 'json-rest-api-integration'

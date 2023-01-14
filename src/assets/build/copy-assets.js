@@ -17,6 +17,6 @@ async function copyDir(src, dest) {
 }
 
 // Copy all Bootstrap SCSS files.
-copyDir('./node_modules/bootstrap/scss', './src/sass/bootstrap');
+copyDir('./node_modules/bootstrap/scss', './src/assets/sass/bootstrap');
 // Copy all Font Awesome SCSS files.
 //copyDir('./node_modules/@fortawesome/fontawesome-free/scss', './src/sass/fontawesome');
