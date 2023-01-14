@@ -3,13 +3,13 @@
 namespace JSONRAPII\Includes;
 
 /**
- * Class UsersTable
- * @package JSONRAPII_URL\Includes
+ * Class UsersData
+ * @package JSONRAPII\Includes
  */
-class UsersTable
+class UsersData
 {
     /**
-     * UsersTable constructor.
+     * UsersData constructor.
      */
     public function __construct()
     {
@@ -49,4 +49,3 @@ class UsersTable
         }
     }
 }
-new UsersTable();
