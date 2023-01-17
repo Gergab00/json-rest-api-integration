@@ -31,8 +31,17 @@ class UsersData
                 } else {
                     $data = json_decode(wp_remote_retrieve_body($response));
 
+                    $filteredData = array_map(static function ($user) {
+                        return [
+                          'id' => $user->id,
+                          'name' => $user->name,
+                          'username' => $user->username,
+                        ];
+                    }, $data);
+
                   // Store the data in the cache
-                    set_transient('users_data', $data, HOUR_IN_SECONDS);
+                    set_transient('users_data', $filteredData, HOUR_IN_SECONDS);
+                    return $filteredData;
                 }
             } catch (Exception $exception) {
               // If the request fails, use the transient data
@@ -47,5 +56,7 @@ class UsersData
                 }
             }
         }
+
+        return $data;
     }
 }

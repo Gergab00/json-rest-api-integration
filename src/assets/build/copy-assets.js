@@ -10,13 +10,17 @@ async function copyDir(src, dest) {
         let srcPath = path.join(src, entry.name);
         let destPath = path.join(dest, entry.name);
 
-        entry.isDirectory() ?
-            await copyDir(srcPath, destPath) :
+        if(entry.isDirectory()) {
+            await copyDir(srcPath, destPath);
+        } else if(!entry.name.endsWith('.min')) {
             await fs.copyFile(srcPath, destPath);
+        }
     }
 }
 
 // Copy all Bootstrap SCSS files.
 copyDir('./node_modules/bootstrap/scss', './src/assets/sass/bootstrap');
-// Copy all Font Awesome SCSS files.
-//copyDir('./node_modules/@fortawesome/fontawesome-free/scss', './src/sass/fontawesome');
+// Copy all DataTables CSS files.
+copyDir('./node_modules/datatables.net-dt/css', './css');
+
+copyDir('./node_modules/datatables.net-dt/js', './js');

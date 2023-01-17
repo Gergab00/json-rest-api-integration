@@ -4,8 +4,8 @@
 	"description": "This plugin allows you to display a HTML table of users on your WordPress site, using data from a third-party REST API.",
 	"main": "index.js",
 	"scripts": {
-		"build": "wp-scripts build --webpack-copy-php --webpack-copy-js --webpack-src-dir=./src/blocks/src --output-path=./blocks/build",
-		"start": "wp-scripts start --webpack-copy-php --webpack-copy-js --webpack-src-dir=./src/blocks/src --output-path=./blocks/build",
+		"build": "wp-scripts build --webpack-copy-php --webpack-copy-js --webpack-src-dir=./src/blocks/src --output-path=./src/blocks/build",
+		"start": "wp-scripts start --webpack-copy-php --webpack-copy-js --webpack-src-dir=./src/blocks/src --output-path=./src/blocks/build",
 		"watch-run-css": "nodemon --watch src/assets/sass/ --ext scss --exec \"npm run compile:css\"",
 		"compile:css": "sass --style expanded --source-map --embed-sources --quiet src/assets/sass/style.scss css/style.css",
 		"lint:scss": "wp-scripts lint-style",
@@ -33,7 +33,9 @@
 	},
 	"homepage": "https://github.com/Gergab00/json-rest-api-integration#readme",
 	"dependencies": {
-		"bootstrap": "^5.2.3"
+		"bootstrap": "^5.2.3",
+		"datatables.net": "^1.13.1",
+		"datatables.net-dt": "^1.13.1"
 	},
 	"devDependencies": {
 		"@rollup/plugin-babel": "^5.0.0",

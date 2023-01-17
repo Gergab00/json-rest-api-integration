@@ -7,7 +7,7 @@ import commonjs from '@rollup/plugin-commonjs'
 import multi from '@rollup/plugin-multi-entry'
 const replace = require('@rollup/plugin-replace')
 
-const external = ['jquery']
+const external = ['jquery', 'datatables.net-dt']
 const plugins = [
     babel({
         // Only transpile our source code
@@ -49,5 +49,5 @@ module.exports = [
         },
         external,
         plugins
-    }
+    },
 ]

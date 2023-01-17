@@ -32,7 +32,11 @@
 		"wp-coding-standards/wpcs": "^2.3"
 	},
 	"autoload": {
-        "psr-4": {"JSONRestAPIIntegration\\": "src/"}
+        "psr-4": {
+			"JSONRAPII\\": "src/",
+			"JSONRAPII\\Includes\\": "src/includes/",
+			"JSONRAPII\\Blocks\\UsersTable\\": "src/blocks/build/users-table/"
+		}
     },
 	"scripts": {
 		"lint:wpcs": "./vendor/bin/phpcs --standard=Wordpress --extensions=php --ignore=*/vendor/*,*/node_modules/* ./",
