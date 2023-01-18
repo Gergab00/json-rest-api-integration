@@ -7,6 +7,7 @@ namespace JSONRAPII;
 
 use JSONRAPII\Includes\Settings;
 use JSONRAPII\Includes\UsersData;
+use JSONRAPII\Includes\CustomEndpoint;
 use JSONRAPII\Blocks\UsersTable\UsersTable;
 
 class Start
@@ -15,6 +16,6 @@ class Start
     {
         $settings = new Settings();
         $usersData = new UsersData();
-        $usersTable = new UsersTable($usersData->getUsersData());
+        $customEndpoint = new CustomEndpoint($usersData->getUsersData());
     }
 }
