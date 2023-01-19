@@ -45,7 +45,8 @@
 		"make-pot": "wp i18n make-pot . languages/json-rest-api-integration.pot",
 		"lint:inpsyde": "./vendor/bin/phpcs --standard=Inpsyde --extensions=php --ignore=*/vendor/*,*/node_modules/* ./",
         "fix": "./vendor/bin/php-cs-fixer fix ./",
-        "fix:inpsyde": "./vendor/bin/phpcbf --standard=Inpsyde --extensions=php --ignore=*/vendor/*,*/node_modules/* ./"
+        "fix:inpsyde": "./vendor/bin/phpcbf --standard=Inpsyde --extensions=php --ignore=*/vendor/*,*/node_modules/* ./",
+		"tests": "phpunit ./tests"
 	},
 	"support": {
 		"issues": "https://github.com/Gergab00/json-rest-api-integration/issues",

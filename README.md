@@ -2,14 +2,19 @@
 
 This plugin allows you to display a HTML table of users on your WordPress site, using data from a third-party REST API.
 
-## Features
+## Description
+This project has been developed as a test sample of my skills as a specialized Wordpress programmer, I have chosen to use Bootstrap in its 5.2 version because it is a plugin to be used and helps to make responsive sites. I have also used DataTables.js, which is a JQuery plugin, because it helps to render tables with information. This shows my skills using jQuery and Javascript.
+
+For the unit tests I have decided to use PHPUnit because it is the Framework that is recommended in the documentation and forums of the Official Wordpress page. It is the same Framework that is used for the unit tests of the Wordpress Core.
+
+## Features 
 - Display a HTML table of users on the frontend of your site, with columns for id, name, and username.
 - Each row in the table contains links that, when clicked, display additional details about the user.
 - The plugin makes requests to the third-party API to retrieve the user data, and does not store it in the WordPress database.
-- The plugin adds a custom endpoint to your site, so that the user table is displayed when visiting a specific URL (e.g. https://example.com/mylovely-users-table/).
+- The plugin adds a custom endpoint to your site, so that the user table is displayed when visiting a specific URL (e.g. https://example.com/show-table-users/).
 - The plugin uses AJAX to retrieve and display user details, so the page does not need to be reloaded when viewing user details.
 - The plugin implements caching for the API requests to improve performance
-- The plugin handle errors for the external requests and display custom message
+- The plugin handle errors for the external requests and display custom messages to the user.
 
 ## Requirements
 WordPress 6.0 or higher
@@ -31,14 +36,10 @@ $ npm install
 ```
 
 ## Usage
-1. To display a list of upcoming movies on your website, create a new page or post and add the shortcode **\[movie_info\]**
-2. To display actor's details, create a new page or post and add the shortcode **\[actor_info\]**
-
-## Customization
-You can customize the output of the plugin by adding different classes and styles to the shortcodes.
+- To show the user table it is necessary to enter for example http://example.com/show-table-users
 
 ## Support
-If you encounter any issues or need assistance, please open an issue on the [GitHub repository](https://github.com/Gergab00/movie-plugin) or contact us via our [mail](contact@gerardo-gonzalez.dev).
+If you encounter any issues or need assistance, please open an issue on the [GitHub repository](https://github.com/Gergab00/json-rest-api-integration) or contact us via our [mail](contact@gerardo-gonzalez.dev).
 
 ## Contribution
 We welcome any contributions to the plugin, please fork the repository and submit a pull request with your changes.
@@ -71,14 +72,13 @@ We welcome any contributions to the plugin, please fork the repository and submi
 - `composer lint:inpsyde`: This command runs `phpcs` to check the plugin's code against the Inpsyde coding standards, ignoring the vendor and node_modules directories.
 - `composer fix`: This command runs `php-cs-fixer` to automatically fix coding standard violations in the plugin's code.
 - `composer fix:inpsyde`: This command runs `phpcbf` to automatically fix coding standard violations in the plugin's code, using the Inpsyde standard, ignoring the vendor and node_modules directories.
+- `composer test`: This command runs `phpunit` to run the plugin's unit tests.
 
 ## Changelog
 -1.0: Initial release
 
 ## License
 This plugin is licensed under the GPLv2 license.
-
-## Acknowledgements
 
 ## Author
 [Gerardo Gabriel Gonzalez Velazquez](https://gerardo-gonzalez.dev)
