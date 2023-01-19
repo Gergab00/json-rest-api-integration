@@ -7,16 +7,19 @@ namespace JSONRAPII\Includes;
 
 class CustomEndpoint
 {
-    private $usersData;
     /**
      * CustomEndpoint constructor.
      */
-    public function __construct(array $usersData)
+    public function __construct(array $data)
     {
-        $this->usersData = $usersData;
+        global $usersData;
+        $usersData = $data;
         add_action('init', [$this, 'registerEndpoint']);
         add_action('template_redirect', [$this, 'handleEndpoint']);
-        register_activation_hook(JSONRAPII_URL, [$this, 'init']);
+        add_action('wp_ajax_get_user_details', [$this, 'renderUserDetailsAjax']);
+        add_action('wp_ajax_nopriv_get_user_details', [$this, 'renderUserDetailsAjax']);
+        add_action('wp_enqueue_scripts', [$this, 'enqueueScripts']);
+        register_activation_hook(plugin_dir_url(JSONRAPII_URL), [$this, 'init']);
     }
 
     public function init()
@@ -29,7 +32,6 @@ class CustomEndpoint
      */
     public function registerEndpoint()
     {
-        //show-table-users
         add_rewrite_endpoint('show-table-users', EP_ROOT);
     }
 
@@ -45,15 +47,9 @@ class CustomEndpoint
             return;
         }
 
-        print_r($this->usersData);
-
         $wp_query->is_404 = '';
         $wp_query->is_page = 1;
-        // Perform your endpoint logic here
-        // For example, you can query the database,
-        // render a custom template, or return a JSON response.
 
-        // In this example, we'll render a custom template.
         $templatePath = JSONRAPII_DIR . '/templates/page-show-table.php';
         if (file_exists($templatePath)) {
             status_header(200);
@@ -71,10 +67,10 @@ class CustomEndpoint
         }
         $userId = intval($_POST['user_id']);
         $transientName = 'user_details_' . $userId;
-        $userData = get_transient($transientName);
+        $uData = get_transient($transientName);
 
-        if ($userData) {
-            wp_send_json_success($userData);
+        if ($uData) {
+            wp_send_json_success($uData);
             return;
         }
 

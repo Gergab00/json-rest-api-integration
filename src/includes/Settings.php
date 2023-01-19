@@ -18,19 +18,50 @@ class Settings
 
     public function defineVersion()
     {
-
-        $pluginData = get_file_data(JSONRAPII_DIR . '/json-rest-api-integration.php', [ 'Version' => 'Version' ]);
+        $pluginData = get_file_data(
+            JSONRAPII_DIR . '/json-rest-api-integration.php',
+            [
+                'Version' => 'Version',
+            ]
+        );
         define('JSONRAPII_VERSION', $pluginData['Version']);
     }
 
     public function enqueueScripts()
     {
+        wp_enqueue_style(
+            'datatables-css',
+            plugin_dir_url(JSONRAPII_URL) . 'css/jquery.dataTables.min.css',
+            [],
+            JSONRAPII_VERSION
+        );
+        wp_enqueue_style(
+            'style-css',
+            plugin_dir_url(JSONRAPII_URL) . 'css/style.css',
+            [],
+            JSONRAPII_VERSION
+        );
 
-        wp_enqueue_style('datatables-css', JSONRAPII_URL . 'css/jquery.dataTables.min.css', [], JSONRAPII_VERSION);
-        wp_enqueue_style('style-css', JSONRAPII_URL . 'css/style.css', [], JSONRAPII_VERSION);
-
-        wp_enqueue_script('datatables-js', JSONRAPII_URL . 'js/dataTables.dataTables.min.js', [ 'jquery' ], JSONRAPII_VERSION, true);
-        wp_enqueue_script('bootstrap-js', JSONRAPII_URL . 'js/bootstrap.js', [ 'jquery' ], JSONRAPII_VERSION, true);
-        wp_enqueue_script('script-js', JSONRAPII_URL . 'js/script.js', [ 'jquery', 'datatables-js', 'bootstrap-js' ], JSONRAPII_VERSION, true);
+        wp_enqueue_script(
+            'datatables-js',
+            plugin_dir_url(JSONRAPII_URL) . 'js/dataTables.dataTables.min.js',
+            [ 'jquery' ],
+            JSONRAPII_VERSION,
+            true
+        );
+        wp_enqueue_script(
+            'bootstrap-js',
+            plugin_dir_url(JSONRAPII_URL) . 'js/bootstrap.js',
+            [ 'jquery' ],
+            JSONRAPII_VERSION,
+            true
+        );
+        wp_enqueue_script(
+            'script-js',
+            plugin_dir_url(JSONRAPII_URL) . 'js/script.js',
+            [ 'jquery', 'datatables-js', 'bootstrap-js' ],
+            JSONRAPII_VERSION,
+            true
+        );
     }
 }

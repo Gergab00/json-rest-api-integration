@@ -14,6 +14,9 @@ declare(strict_types=1);
 
 // Exit if accessed directly.
 defined('ABSPATH') || exit;
+
+global $usersData;
+
 get_header();
 
 ?>
@@ -33,7 +36,7 @@ get_header();
                         </tr>
                     </thead>
                     <tbody>
-                        <?php foreach ($this->usersData as $user) : ?>
+                        <?php foreach ($usersData as $user) : ?>
                         <tr>
                             <td>
                                 <a href="<?php echo esc_url(add_query_arg('user_id', esc_html($user["id"]), get_permalink())); ?>"
@@ -62,12 +65,19 @@ get_header();
                 </table>
 
                 <!-- Modal -->
-                <div class="modal fade" id="staticBackdrop" data-bs-backdrop="static" data-bs-keyboard="false"
-                    tabindex="-1" aria-labelledby="staticBackdropLabel" aria-hidden="true">
+                <div class="modal fade" 
+                     id="staticBackdrop" 
+                     data-bs-backdrop="static" 
+                     data-bs-keyboard="false"
+                     tabindex="-1" 
+                     aria-labelledby="staticBackdropLabel" 
+                     aria-hidden="true">
                     <div class="modal-dialog">
                         <div class="modal-content">
                             <div class="modal-header">
-                                <h1 class="modal-title fs-5" id="staticBackdropLabel">User Details</h1>
+                                <h1 class="modal-title fs-5" id="staticBackdropLabel">
+                                    User Details
+                                </h1>
                                 <button type="button" class="btn-close" data-bs-dismiss="modal"
                                     aria-label="Close"></button>
                             </div>
@@ -75,7 +85,8 @@ get_header();
                                 ...
                             </div>
                             <div class="modal-footer">
-                                <button type="button" class="btn btn-secondary user-details-close-btn"
+                                <button type="button" 
+                                    class="btn btn-secondary user-details-close-btn"
                                     data-bs-dismiss="modal">
                                     Close
                                 </button>
@@ -91,4 +102,4 @@ get_header();
 
     <?php
 
-get_footer();
+    get_footer();

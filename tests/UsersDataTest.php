@@ -8,7 +8,7 @@ class UsersDataTest extends \PHPUnit\Framework\TestCase
     {
         $usersData = new UsersData();
 
-        $data = $usersData->getUsersData();
+        $data = $usersData->showUsersData();
 
         $this->assertNotEmpty($data);
 
@@ -32,7 +32,7 @@ class UsersDataTest extends \PHPUnit\Framework\TestCase
             ->method('wp_remote_get')
             ->willReturn($response);
 
-        $data = $mock->getUsersData();
+        $data = $mock->showUsersData();
         $this->assertNotEmpty($data);
 
         $transient = get_transient('users_data');

@@ -1,5 +1,7 @@
 <?php
 
+declare(strict_types=1);
+
 /*
 @package json-rest-api-integration
 @author Gerardo Gonzalez
@@ -27,8 +29,8 @@ You should have received a copy of the GNU General Public License
 along with JSON REST API integration. If not, see https://www.gnu.org/licenses/gpl-2.0.html.
 */
 
-define('JSONRAPII_URL', plugin_dir_url(__FILE__));
-define('JSONRAPII_DIR', __DIR__);
+const JSONRAPII_URL = __FILE__;
+const JSONRAPII_DIR = __DIR__;
 
 require __DIR__ . '/vendor/autoload.php';
 

@@ -16,6 +16,6 @@ class Start
     {
         $settings = new Settings();
         $usersData = new UsersData();
-        $customEndpoint = new CustomEndpoint($usersData->getUsersData());
+        $customEndpoint = new CustomEndpoint($usersData->showUsersData());
     }
 }
