@@ -45,6 +45,8 @@ class CustomEndpoint
             return;
         }
 
+        print_r($this->usersData);
+
         $wp_query->is_404 = '';
         $wp_query->is_page = 1;
         // Perform your endpoint logic here

@@ -29,13 +29,14 @@
         "wp-cli/i18n-command": "^2.2.5",
 		"inpsyde/php-coding-standards": "^1.0",
 		"squizlabs/php_codesniffer": "*",
-		"wp-coding-standards/wpcs": "^2.3"
+		"wp-coding-standards/wpcs": "^2.3",
+		"phpunit/phpunit": "^9.5",
+		"yoast/phpunit-polyfills": "^1.0"
 	},
 	"autoload": {
         "psr-4": {
 			"JSONRAPII\\": "src/",
-			"JSONRAPII\\Includes\\": "src/includes/",
-			"JSONRAPII\\Blocks\\UsersTable\\": "src/blocks/build/users-table/"
+			"JSONRAPII\\Includes\\": "src/includes/"
 		}
     },
 	"scripts": {
